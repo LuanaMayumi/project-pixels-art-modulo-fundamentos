@@ -1,8 +1,20 @@
 #title {
 
-    background-color: slategrey;
-    color: rgb(67, 57, 158);
+    font-family: sans-serif;
+    font-size: 50px;
+
+    background-color: rgb(144, 189, 235);
+    color: rgb(237, 236, 245);
     text-align: center;
     
+}
+
+#button-random-color {
+
+    width: 200px;
+    height: 100px;
+    background-color: rgb(222, 245, 180);
+
+
 }
 

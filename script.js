@@ -4,6 +4,8 @@ document.body.appendChild(chamandoPaiPaletaCores);
 
 let div = document.createElement('div') //capturando a DIV com os quadrados
 
+// let button = document.getElementById('button-random-color'); //capturando o botão
+
 chamandoPaiPaletaCores.style.display = 'flex'
 chamandoPaiPaletaCores.style.marginLeft = '400px'
 
@@ -11,32 +13,22 @@ chamandoPaiPaletaCores.style.marginLeft = '400px'
 
 function AtualizandoPai () {
 chamandoPaiPaletaCores.id = 'color-palette'
+// chamandoPaiPaletaCores.style.margin = '0 auto'
 }
 
-
-
-let li = document.createElement('li'); //teste
-chamandoPaiPaletaCores.appendChild(li) //teste
-li.innerHTML = 'Preto, Roxo, Azul, Azul marinho'
-li.style.marginBottom = '50px'
-
-// li.style.textAlign = 'center'
 
 function addingPaletaCores () {
 
 for (let index = 0; index < 4; index += 1) {
 let div = document.createElement('div');
-// let li = document.createElement('li'); //teste
 div.className = 'color'
 div.style.border = 'solid 1px black'
 div.style.width = '50px'
 div.style.height = '50px'
 div.style.marginTop = '100px'
 chamandoPaiPaletaCores.appendChild(div)
-// chamandoPaiPaletaCores.appendChild(li) //teste
 }
 }
-
 
 function paintingSquareBlack (){
 let pintandoQuadrado0 = document.getElementsByClassName('color')
@@ -58,6 +50,40 @@ let pintandoQuadrado3 = document.getElementsByClassName('color')
 pintandoQuadrado3[3].style.backgroundColor = 'rgb(14,104,187)'
 }
 
+function gettingColors () {
+let r = Math.floor(Math.random() * 255);
+let g = Math.floor(Math.random() * 255);
+let b = Math.floor(Math.random() * 255);
+return rgb = `rgb(${r}, ${g}, ${b})`;
+}
+// console.log(gettingColors)
+
+
+    function paintingSquare () {
+
+        //colocar cor preta no quadrado 1
+
+        let gettingClassColors = document.querySelectorAll('.color'); // capturando a classe COLOR dos quadrados
+        gettingClassColors[0].style.backgroundColor = 'black'
+        
+        for (let index = 1; index < gettingClassColors.length ; index += 1) {
+            console.log(gettingClassColors)
+           gettingClassColors[index].style.backgroundColor = gettingColors(); 
+        }
+        console.log('teste')
+    }
+
+    let gettingButton = document.getElementById('button-random-color')
+    console.log(gettingButton);
+    gettingButton.addEventListener('click', paintingSquare)
+    
+
+
+
+
+
+// função que gera cores aleatorias
+
 // function selectColor(){
 //     let treinador = "black"
 //     let quadradoPreto = document.getElementsByClassName('cor')
@@ -77,7 +103,8 @@ pintandoQuadrado3[3].style.backgroundColor = 'rgb(14,104,187)'
 // chamadas functions
 AtualizandoPai ()
 addingPaletaCores ()
-paintingSquareBlack ()
-paintingSquarePurple ()
-paintingSquareBlue ()
-paintingSquareBlueMarine ()
+// paintingSquareBlack ()
+// paintingSquarePurple ()
+// paintingSquareBlue ()
+// paintingSquareBlueMarine ()
+paintingSquare () 
