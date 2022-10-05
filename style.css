@@ -1,20 +1,56 @@
 #title {
-
     font-family: sans-serif;
     font-size: 50px;
-
     background-color: rgb(144, 189, 235);
     color: rgb(237, 236, 245);
     text-align: center;
     
 }
 
+.color {
+    border: solid 1px black ;
+    width: 40px;
+    height: 40px;
+    margin-top: 10x;
+    
+    }
+
 #button-random-color {
+        width: 180px;
+        height: 100px;
+        background-color: rgb(222, 245, 180);
+        margin-bottom: 100px;
+    }
 
-    width: 200px;
-    height: 100px;
-    background-color: rgb(222, 245, 180);
-
+#pixelSection {
+    /* display: inline-block; */
 
 }
 
+#pixel-board {
+        border: solid 1px black;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+    
+    }
+    
+.pixel {
+    border: solid 1px black;
+ }
+
+li {
+    list-style: none;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+section {
+    display: flex;
+}
