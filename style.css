@@ -8,14 +8,21 @@ header {
     margin: auto;
 
 }
+
+body {
+    /* background-color: rgb(172, 167, 167); */
+    background-image: url('background3.jpg');
+}
 #title {
-    
+    margin-top: 70px;
+    border-radius: 5px;
+    border: solid 1px rgb(85, 3, 105);
     font-family: sans-serif;
     font-size: 50px;
-    background-color: rgb(144, 189, 235);
+    /* background-color: rgb(144, 189, 235); */
     color: rgb(237, 236, 245);
     text-align: center;
-    
+    background-color: rgb(155, 105, 189);
 }
 
 #IDDiv {
@@ -69,10 +76,10 @@ li {
     
     }
 
-#button-random-color {
+#button-random-color, #clear-board{
         width: 180px;
         height: 100px;
-        background-color: rgb(222, 245, 180);
+        background-color: rgb(144, 189, 235);
         margin-bottom: 100px;
     }
 
