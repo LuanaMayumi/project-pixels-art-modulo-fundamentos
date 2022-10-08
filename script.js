@@ -143,6 +143,23 @@ event.target.style.backgroundColor = cor //sempre que for propriedade CSS, usar 
 
 });
 
+//exercicio 11
+
+let buttonClear = document.getElementById('clear-board')
+
+buttonClear.addEventListener('click', function (){ //função anônima pode ser usada aqui pq vai ser chamada somente no ex 11
+let pixels = document.getElementsByClassName('pixel')
+console.log(pixels);
+
+for (let pixel of pixels) { //para cada pixel dos pixels (grid)
+
+    pixel.style.backgroundColor = 'white';
+
+} 
+
+
+})
+
 
  
 
