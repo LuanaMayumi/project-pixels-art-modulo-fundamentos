@@ -139,7 +139,10 @@ console.log(pixels);
 pixels.addEventListener('click', function (event) {
 console.log(event.target)//mostra no meu console exatamente o LI que eu cliquei
 
-event.target.style.backgroundColor = cor //sempre que for propriedade CSS, usar uma string pra atribuir valor. //classList.add - função, atribuir a string dentro do parênteses ( )
+if (event.target.className === 'pixel') {//se o nome da Classe do meu pixel for igual a pixel
+    console.log(event.target);
+    event.target.style.backgroundColor = cor //sempre que for propriedade CSS, usar uma string pra atribuir valor. //classList.add - função, atribuir a string dentro do parênteses ( )
+}
 
 });
 
@@ -156,7 +159,6 @@ for (let pixel of pixels) { //para cada pixel dos pixels (grid)
     pixel.style.backgroundColor = 'white';
 
 } 
-
 
 })
 
