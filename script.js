@@ -112,12 +112,11 @@ function paintingSquareBlueMarine() {
 
 //EXERCICIO 9
 
-let selected2 = document.getElementsByClassName('selected')
-console.log(selected2); //retorna em array!
 
 let paletteCores = document.getElementById('color-palette') //retorna em array?
-console.log(paletteCores);
+console.log(paletteCores); // variável fora de uma função, ela é global, pode ser utilizada em qualquer lugar do programa
 
+let cor = 'rgb(0, 0, 0)' //a cor preta é substituida pela cor clicada no palete, atraves do event.target.style.backgroudColor
 
     paletteCores.addEventListener('click', function (event) {
 console.log('entrei');
@@ -127,16 +126,23 @@ console.log(selected); //está retornando Null
   
             selected.classList.remove('selected')
             event.target.classList.add('selected')
+
+            cor = event.target.style.backgroundColor //variável criada pro exercício 10, onde o meu Event vai puxar o background color depois do meu click na paleta. target = alvo
         }
              );
 
+//exercicio 10
 
-// paletteCores.addEventListener('click', function (event) {
+let pixels = document.getElementById('pixelSection')
+console.log(pixels);
 
-//     selected.classList.remove('selected')
+pixels.addEventListener('click', function (event) {
+console.log(event.target)//mostra no meu console exatamente o LI que eu cliquei
 
-//     event.target.className = 'color selected';
-    
+event.target.style.backgroundColor = cor //sempre que for propriedade CSS, usar uma string pra atribuir valor. //classList.add - função, atribuir a string dentro do parênteses ( )
+
+});
+
 
  
 
