@@ -134,7 +134,7 @@ console.log(selected); //está retornando Null
 //exercicio 10
 
 let pixels = document.getElementById('pixelSection')
-console.log(pixels);
+console.log(pixels);//não da pra usar FOR aqui pq qdo abro uma variável por Element, só me retorna um elemento e nao um array
 
 pixels.addEventListener('click', function (event) {
 console.log(event.target)//mostra no meu console exatamente o LI que eu cliquei
