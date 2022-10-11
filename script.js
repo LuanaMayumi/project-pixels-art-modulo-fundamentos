@@ -77,18 +77,109 @@ gettingButton.addEventListener('click', paintingSquare)
 
 let pixelSection = document.getElementById('pixelSection') //capturando o quadro Pixel
 
+let inputField = document.getElementById('board-size')//capturando o campo de input - EXERCICIO 13
+let button = document.getElementById('generate-board') //capturando o botão - EXERCICIO 13
 
-for (let index = 0; index < 5; index += 1) { //criando o quadro através de UL
-    let section = document.createElement('ul');
-    section.id = 'pixel-board'
-    pixelSection.appendChild(section);
+ function sendInfo (event) { //EXERCICIO 13
 
-    for (let index2 = 0; index2 < 5; index2 += 1) { //criando o quadro através de li
-        let criandoLi = document.createElement('li');
-        criandoLi.classList.add('pixel') //para add uma classe sem sobreescrever a que existe
-        section.appendChild(criandoLi)
-    }
+    let valor = inputField.value //pegando o valor do meu Input
+    
+    console.log(valor);
+    return valor;//precisa dar o return para eu conseguir usar em outros locais
+ }
+
+function clearGrid () { //limpando meu grid quando um novo valor é colocado no input
+
+pixelSection.innerHTML = '';
+// console.log(clearGrid());
+return clearGrid
 }
+
+button.addEventListener('click', clearGrid )
+
+
+
+
+function grid25 (){
+
+    for (let index = 0; index < 5; index += 1) { //criando o quadro através de UL
+      
+        let section = document.createElement('ul');
+        section.id = 'pixel-board'
+        pixelSection.appendChild(section);
+    
+        for (let index2 = 0; index2 < 5; index2 += 1) { //criando o quadro através de li
+            let criandoLi = document.createElement('li');
+            criandoLi.classList.add('pixel') //para add uma classe sem sobreescrever a que existe
+            section.appendChild(criandoLi)
+}
+}
+}
+
+
+ function grid () { //parametro N será utilizado para gerar o grid
+
+    let valorMaximo = 5;
+
+    if (sendInfo() < 0 || sendInfo() === '' ) {
+        alert('Board inválido!')//chamando a função, precisa dos parenteses
+        
+    } else if (sendInfo() < 5) {
+        valorMaximo //sobrescrever o valor da variavel
+    } else if (sendInfo() > 50) {
+        valorMaximo = 50;
+    } else {
+        valorMaximo = sendInfo()
+    }
+
+    for (let index = 0; index < valorMaximo; index += 1) { //criando o quadro através de UL
+      
+        let section = document.createElement('ul');
+        section.id = 'pixel-board'
+        pixelSection.appendChild(section);
+    
+        for (let index2 = 0; index2 < valorMaximo; index2 += 1) { //criando o quadro através de li
+            let criandoLi = document.createElement('li');
+            criandoLi.classList.add('pixel') //para add uma classe sem sobreescrever a que existe
+            section.appendChild(criandoLi)
+        }
+    } 
+    savingGridLocalStorage(sendInfo()) //função que salva no meu Local Storage quando os pixels são criados
+ }
+
+button.addEventListener('click', grid) //EXERCICIO 13, quando o botao for clicado, vai chamar a minha função grid
+
+
+function gridToSaveLocalStorage (sizeLocalStorage) { //parametro recuperado do Local
+
+    let valorMaximo = 0;
+
+    if (sizeLocalStorage < 0 || sizeLocalStorage === '' ) {
+        alert('Board inválido!')//chamando a função, precisa dos parenteses
+        
+    } else if (sizeLocalStorage < 5) {
+        valorMaximo //sobrescrever o valor da variavel
+    } else if (sizeLocalStorage> 50) {
+        valorMaximo = 50;
+    } else {
+        valorMaximo = sizeLocalStorage
+    }
+
+    for (let index = 0; index < valorMaximo; index += 1) { //criando o quadro através de UL
+      
+        let section = document.createElement('ul');
+        section.id = 'pixel-board'
+        pixelSection.appendChild(section);
+    
+        for (let index2 = 0; index2 < valorMaximo; index2 += 1) { //criando o quadro através de li
+            let criandoLi = document.createElement('li');
+            criandoLi.classList.add('pixel') //para add uma classe sem sobreescrever a que existe
+            section.appendChild(criandoLi)
+        }
+    } 
+ }
+
+
 
 function paintingSquareBlack() {
     let pintandoQuadrado0 = document.getElementsByClassName('color')
@@ -161,11 +252,37 @@ for (let pixel of pixels) { //para cada pixel dos pixels (grid)
 } 
 
 })
+let selected = document.querySelectorAll('.pixel')
+console.log(selected);
 
 
- 
+
+ //exercicio 15
+
+ function savingGridLocalStorage (size) { //função que vai salvar o Size do meu board no LS
+
+ localStorage.setItem ('boardSize', JSON.stringify(size))//Primeiro é a chave do objeto , size é o valor
+ }
+
+ function gettingGridLocalStorage () {
+
+ let gridRecuperado = JSON.parse(localStorage.getItem('boardSize'))//Parse é utilizado pra retornar ao type anterior (number)
+
+ gridToSaveLocalStorage(gridRecuperado);
+
+ }
+ function verifyLocalStorage () {
+
+    if (localStorage.length === 0){
+        grid25();
+    } else {
+        gettingGridLocalStorage();
+    }
+
+ }
 
 
+// prettier - extensão VS Code - Ctrl+Shift+i
 
 window.onload = function () {
             paintingSquareBlack()
@@ -173,8 +290,10 @@ window.onload = function () {
             paintingSquareBlue()
             paintingSquareBlueMarine()
             getLocalStorage()
+            verifyLocalStorage ()
         }
 
 // chamadas functions
 addingPaletaCores();
 addClasseSelected();
+

@@ -26,24 +26,21 @@ body {
 }
 
 #IDDiv {
-text-align: center;
-margin-top: 20px;
-height: 100px;
-
+    text-align: center;
+    margin-top: 20px;
+    height: 100px;
 }
-#IDPixel {
- 
 
+#IDPixel {
     justify-content: center;
     align-items: center;
-text-align: center;
-margin-right: 180px;
-margin-top: 50px; 
+    text-align: center;
+    margin-right: 180px;
+    margin-top: 50px; 
 }
 
 #teste {
     text-align: center;
-
 }
 
 #color-palette { 
@@ -55,8 +52,8 @@ ul {
     /* display: flex; */
     flex-wrap: wrap;
     /* display: block; */
-margin-right: auto;
-margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
 /* grid-row: 20px;
     grid-column: 50px; */
 }
@@ -76,30 +73,28 @@ li {
     width: 40px;
     height: 40px;
     margin-top: 10x;
-    
-    
     }
 
 #button-random-color, #clear-board{
-        width: 180px;
-        height: 100px;
-        background-color: rgb(144, 189, 235);
-        margin-bottom: 100px;
+    width: 150px;
+    height: 80px;
+    background-color: rgb(144, 189, 235);
+    margin-bottom: 100px;
     }
 
 #pixelSection {
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 #pixel-board {
-        width: 42px;
-        height: 42px;
-        display: flex;
-        flex-direction:column ;
-        background-color: white;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    flex-direction:column ;
+    background-color: white;
     }
     
 .pixel {
@@ -107,6 +102,10 @@ margin: 0 auto;
     background-color: white;
     /* width: 40px;
     height: 40px; */
+ }
+ .input {
+    text-align: center;
+
  }
 
 
